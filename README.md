@@ -1,3 +1,7 @@
+#To run this project first step is 
+### npm install
+### bower install
+### and run "gulp serve"
 # Gulp Tasks
 
 Because the `gulpfile.js` was becoming enormous and because I hate huge files, this
