@@ -21,7 +21,6 @@
         addCustomer:function (data) {
            return $http.post(BASE_URL+ '/api/customers')
             .then(function(result) {
-            return result.data;
           });
         },
         
