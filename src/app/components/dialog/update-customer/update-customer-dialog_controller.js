@@ -8,7 +8,7 @@
 
   /** @ngInject */
   function updateCustomerDialogController($scope, $mdDialog,customer,$http,appPopupFactory) {
-         var vm=this;
+
     $scope.close = function() {
       $mdDialog.hide();
     };

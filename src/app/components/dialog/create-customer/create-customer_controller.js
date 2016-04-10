@@ -26,10 +26,9 @@
         data    : $scope.formData,  // pass in data as strings
         headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
       })
-        .success(function(data) {
+        .success(function() {
           appPopupFactory.showSimpleToast('Customer Created Successfully.');
           $state.go($state.current, {}, {reload: true});
-          console.log("OK");
           $scope.close();
         })
         .error(function(data, status, headers, config){
