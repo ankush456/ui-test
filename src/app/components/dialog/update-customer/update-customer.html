@@ -1,8 +1,8 @@
-<md-dialog class="" flex="40">
+<md-dialog class="" flex="40" >
   <form>
     <md-toolbar class="">
       <div class="md-toolbar-tools">
-        <h3>Update Customer</h3>
+        <h3>Create Customer</h3>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="close()">
           <md-icon class="material-icons">close</md-icon>
@@ -10,13 +10,13 @@
       </div>
     </md-toolbar>
 
-      <md-dialog-content>
+      <md-dialog-content ng-repeat="details in customer">
        
        <div layout="column" class="margin-box-10" flex="auto">
        <div layout="row" flex="auto">
         <p class="margin-r-10">Email :</p>
         <md-input-container md-no-float class="pad-0 pad-t-10" flex="auto">
-        <input type="email" ng-model="customer.email" placeholder="Enter Email"></input>
+        <input type="email" ng-model="details.email" placeholder="Enter Email" required=""></input>
         </md-input-container>
        </div>
 
@@ -24,45 +24,29 @@
         <p class="pad-t-10">Name :</p>
         <md-input-container  flex="auto">
         <label>First Name</label>
-        <input type="text" ng-model="customer.first_name"></input>
+        <input type="text" ng-model="details.fName" required></input>
         </md-input-container>
         <md-input-container flex="auto">
         <label>Last Name</label>
-        <input type="text" ng-model="customer.last_name"></input>
+        <input type="text" ng-model="details.lName" required></input>
         </md-input-container>
        </div>
 
-        
-       <div layout="row" flex="auto">
-        <p class="margin-r-10">Ip Address :</p>
-        <md-input-container md-no-float class="pad-0 pad-t-10" flex="auto">
-        <input type="text" placeholder="Enter Ip Address" ng-model="customer.ip"></input>
-        </md-input-container>
-       </div>
 
        <div layout="row" flex="auto">
-        <p class="margin-r-20">Latitude :</p>
+        <p class="margin-r-10">Contact No:</p>
         <md-input-container md-no-float class="pad-0 pad-t-10" flex="auto">
-        <input type="text" placeholder="Enter Latitude" ng-model="customer.latitude"></input>
+        <input type="number" placeholder="Enter Contact" ng-model="details.contact" required></input>
         </md-input-container>
        </div>
-
-      <div layout="row" flex="auto">
-        <p class="margin-r-10">Longitude :</p>
-        <md-input-container md-no-float class="pad-0 pad-t-10" flex="auto">
-        <input type="text" placeholder="Enter Longitude" ng-model="customer.longitude"></input>
-        </md-input-container>
-       </div>
-       
- <md-datepicker hide-sm hide-md hide-lg hide ng-model="customer.updated_at"></md-datepicker>
-              </div>  
-
 
        
 
       <div layout="row" layout-align="end center">
-      <md-button type="submit" ng-click="confirm()"class="md-primary">Save</md-button>
+      <md-button type="submit" ng-click="confirm();"class="md-primary">Save</md-button>
       </div>
+
+
     </md-dialog-content>
   </form>
 </md-dialog>

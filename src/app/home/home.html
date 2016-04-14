@@ -1,0 +1,23 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+      <span>Welcome</span>
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+    </div>
+  </md-toolbar>
+  <md-button class="md-fab md-fab-top-right margin-t-20" aria-label="Add" ng-click="home.createCustomer($event)">
+        <md-icon>add<md-icon>
+      </md-button>
+ 
+
+<md-card  flex="50" class="margin-lr-20" ng-repeat="customer in customers" layout="column">
+<div flex="auto" layout="column" layout-align="start end"><md-icon class="margin-box-10"ng-click="home.deleteCustomer(customer.id)">clear</md-icon></div>
+<div layout="row" margin-lr-10><h3 class="margin-l-10">Name:</h3> <p class="margin-0 margin-t-20 margin-l-10">{{customer.fName+ " " + customer.lName}}</p></div>
+<div layout="row" margin-lr-10>
+<h3 class="margin-l-10">Email:</h3> <p class="margin-0 margin-t-20 margin-l-10">{{customer.email}}</p> 
+</div>
+<div layout="row" margin-lr-10>
+<h3 class="margin-l-10">Contact:</h3> <p class="margin-0 margin-t-20 margin-l-10">{{customer.contact}}</p> 
+</div>
+<md-button ng-click="home.updateCustomer($event,customer)">Update</md-button>
+</md-card>

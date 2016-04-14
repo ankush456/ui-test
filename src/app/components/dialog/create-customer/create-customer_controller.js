@@ -7,7 +7,7 @@
 
 
   /** @ngInject */
-  function createCustomerDialogController($scope, $mdDialog,myService,$http,$state,appPopupFactory) {
+  function createCustomerDialogController($scope, $mdDialog,myService,$http,$state,appPopupFactory,$cookieStore) {
 
     $scope.close = function() {
       $mdDialog.hide();
@@ -16,25 +16,18 @@
       $mdDialog.cancel();
     };
      $scope.formData={};
-     $scope.formData.created_at=new Date();
-     $scope.formData.updated_at=new Date();
      $scope.confirm = function(){
-     $http({
-        method  : 'POST',
-        url     : 'http://localhost:3000/api/customers',
-        //url     : 'http://10.0.1.64:3100/api/goals',
-        data    : $scope.formData,  // pass in data as strings
-        headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
-      })
-        .success(function() {
-          appPopupFactory.showSimpleToast('Customer Created Successfully.');
-          $state.go($state.current, {}, {reload: true});
-          $scope.close();
-        })
-        .error(function(data, status, headers, config){
-        console.log(data);
-        console.log(status);
-      });
+       var formData=$scope.formData;
+       myService.addCustomer(formData)
+         .then(function(data) {
+           $scope.data=data;
+           appPopupFactory.showSimpleToast('Customer Updated Successfully.');
+           $state.go($state.current, {obj:data},{reload: true});
+           $scope.close();
+
+           $cookieStore.put('myFavorite',data);
+
+         });
 
     };
   }
