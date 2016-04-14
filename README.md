@@ -2,6 +2,9 @@
 ### npm install
 ### bower install
 ### and run "gulp serve"
+#To login use
+#username: ankush
+#password: welcome
 # Gulp Tasks
 
 Because the `gulpfile.js` was becoming enormous and because I hate huge files, this
